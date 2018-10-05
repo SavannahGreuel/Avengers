@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import members from'./members'
 
 class App extends Component {
+constructor () {
+  super();
+  this.state = {
+    members: members
+  };
+}
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+           Avengers:  By Savannah
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          
         </header>
+
+        <div>
+          {this.state.members.map (a => (
+            <div key = {a.realName}>
+            <p>
+              Name: {a.name}  ,    
+              Real Name: {a.realName}
+            </p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
